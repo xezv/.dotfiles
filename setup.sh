@@ -4,13 +4,14 @@ set -euo pipefail
 CURRENT_TIMESTAMP=$(date +"%Y-%m-%dT%H:%M:%S.%3N")
 CURRENT_DIR=$(dirname "${BASH_SOURCE[0]}")
 
-source "${CURRENT_DIR}/scripts/update_version.sh"
-exit_if_dotfiles_up_to_date
-
 # config directory path
 DOTFILES_DIR="${HOME}/dotfiles"
 CONFIG_DIR="${HOME}/.config"
 BACKUP_DIR="${CONFIG_DIR}/backup/.config.${CURRENT_TIMESTAMP}"
+mkdir -p "${CONFIG_DIR}"
+
+source "${CURRENT_DIR}/scripts/update_version.sh"
+exit_if_dotfiles_up_to_date
 
 # Wezterm
 mkdir -p "${CONFIG_DIR}/wezterm"
