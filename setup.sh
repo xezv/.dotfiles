@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "${CURRENT_DIR}/scripts/update_version.sh"
-exit_if_dotfiles_up_to_date
-
 CURRENT_TIMESTAMP=$(date +"%Y-%m-%dT%H:%M:%S.%3N")
 CURRENT_DIR=$(dirname "${BASH_SOURCE[0]}")
+
+source "${CURRENT_DIR}/scripts/update_version.sh"
+exit_if_dotfiles_up_to_date
 
 # config directory path
 DOTFILES_DIR="${HOME}/dotfiles"
