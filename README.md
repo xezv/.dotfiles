@@ -9,12 +9,12 @@
 $ cd $HOME
 
 # 2. clone the `.dotfiles` repository
-$ git clone https://github.com/xezv/.dotfiles
+$ git clone https://github.com/xezv/dotfiles
 
 # 3. move to the cloned directory
-cd .dotfiles
+cd dotfiles
 
-# 4. grant execute permission to the setup script
+# 4. grant execution permission to the setup script
 $ chmod +x setup.sh
 
 # 5. run setup script
@@ -23,6 +23,6 @@ $ ./setup.sh
 
 done.
 
-notice that `.dotfiles` directory is not deleted after setup.
+notice that `dotfiles` directory is not deleted after setup.
 
 config files created by the `setup.sh` script are just symlinks.

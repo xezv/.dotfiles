@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+source "${CURRENT_DIR}/scripts/update_version.sh"
+exit_if_dotfiles_up_to_date
+
 CURRENT_TIMESTAMP=$(date +"%Y-%m-%dT%H:%M:%S.%3N")
 CURRENT_DIR=$(dirname "${BASH_SOURCE[0]}")
 
 # config directory path
-DOTFILES_DIR="${HOME}/.dotfiles"
+DOTFILES_DIR="${HOME}/dotfiles"
 CONFIG_DIR="${HOME}/.config"
 BACKUP_DIR="${CONFIG_DIR}/backup/.config.${CURRENT_TIMESTAMP}"
 
@@ -31,3 +34,5 @@ for file in "${DOTFILES_DIR}/fish/"*; do
     # so the below is equivalent to the above but more readable
     ln -sf "$file" "${CONFIG_DIR}/fish/$(basename "$file")"
 done
+
+echo "dotfiles updated"
