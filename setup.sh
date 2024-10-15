@@ -23,7 +23,7 @@ mkdir -p "${DST_DIR}/zellij"
 ln -sf "${SRC_DIR}/zellij/config.kdl" "${DST_DIR}/zellij/config.kdl"
 
 # Helix
-mkdir -p "${DST_DIR}/helix"
+# mkdir -p "${DST_DIR}/helix" -> error, overwrite existing helix
 # ${SRC_DIR}/helix ${DST_DIR}/helix -> ${DST_DIR}helix/helix
 # so the below is correct
 ln -sf "${SRC_DIR}/helix/" "${DST_DIR}/"
