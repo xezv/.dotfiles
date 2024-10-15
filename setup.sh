@@ -2,7 +2,8 @@
 set -euo pipefail
 
 CURRENT_TIMESTAMP=$(date +"%Y-%m-%dT%H:%M:%S.%3N")
-CURRENT_DIR=$(dirname "${BASH_SOURCE[0]}")
+# CURRENT_DIR=$(dirname "${BASH_SOURCE[0]}")
+CURRENT_DIR=$(realpath "$(dirname "${BASH_SOURCE[0]}")")
 
 # config directory path
 SRC_DIR="${HOME}/dotfiles/config"
