@@ -24,7 +24,9 @@ ln -sf "${SRC_DIR}/zellij/config.kdl" "${DST_DIR}/zellij/config.kdl"
 
 # Helix
 mkdir -p "${DST_DIR}/helix"
-ln -sf "${SRC_DIR}/helix/." "${DST_DIR}/helix/"
+# ${SRC_DIR}/helix ${DST_DIR}/helix -> ${DST_DIR}helix/helix
+# so the below is correct
+ln -sf "${SRC_DIR}/helix/" "${DST_DIR}/"
 
 # Fish
 mkdir -p "${DST_DIR}/fish"
