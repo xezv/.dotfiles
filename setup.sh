@@ -34,7 +34,7 @@ for FILE in "${SRC_DIR}/fish/"*; do
     # `${var}##{pattern}/`
     # `${file##*/}` extracts text after last '/'
     # so the below is equivalent to the above but more readable
-    ln -sf "$FILE" "${DST_DIR}/fish/$(basename "$FILE")"
+    ln -sf "${SRC_DIR}/fish/$(basename "${FILE}")" "${DST_DIR}/fish/$(basename "${FILE}")"
 done
 
 echo "dotfiles updated"
