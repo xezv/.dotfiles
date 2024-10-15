@@ -5,35 +5,35 @@ CURRENT_TIMESTAMP=$(date +"%Y-%m-%dT%H:%M:%S.%3N")
 CURRENT_DIR=$(dirname "${BASH_SOURCE[0]}")
 
 # config directory path
-DOTFILES_DIR="${HOME}/dotfiles"
-CONFIG_DIR="${HOME}/.config"
-BACKUP_DIR="${CONFIG_DIR}/backup/.config.${CURRENT_TIMESTAMP}"
-mkdir -p "${CONFIG_DIR}"
+SRC_DIR="${HOME}/dotfiles/config"
+DST_DIR="${HOME}/.config"
+BACKUP_DIR="${DST_DIR}/backup/.config.${CURRENT_TIMESTAMP}"
+mkdir -p "${DST_DIR}"
 
 source "${CURRENT_DIR}/scripts/update_version.sh"
 exit_if_dotfiles_up_to_date
 
 # Wezterm
-mkdir -p "${CONFIG_DIR}/wezterm"
-ln -sf "${DOTFILES_DIR}/wezterm/config.lua" "${CONFIG_DIR}/wezterm/config.lua"
+mkdir -p "${DST_DIR}/wezterm"
+ln -sf "${SRC_DIR}/wezterm/config.lua" "${DST_DIR}/wezterm/config.lua"
 
 # Zellij
-mkdir -p "${CONFIG_DIR}/zellij"
-ln -sf "${DOTFILES_DIR}/zellij/config.kdl" "${CONFIG_DIR}/zellij/config.kdl"
+mkdir -p "${DST_DIR}/zellij"
+ln -sf "${SRC_DIR}/zellij/config.kdl" "${DST_DIR}/zellij/config.kdl"
 
 # Helix
-mkdir -p "${CONFIG_DIR}/helix"
-ln -sf "${DOTFILES_DIR}/helix" "${CONFIG_DIR}/helix"
+mkdir -p "${DST_DIR}/helix"
+ln -sf "${SRC_DIR}/helix" "${DST_DIR}/helix"
 
 # Fish
-mkdir -p "${CONFIG_DIR}/fish"
+mkdir -p "${DST_DIR}/fish"
 # # link all files in fish directory
-for file in "${DOTFILES_DIR}/fish/"*; do
+for FILE in "${SRC_DIR}/fish/"*; do
     # ln -sf "$file" "${CONFIG_DIR}/helix/${file##*/}"
     # `${var}##{pattern}/`
     # `${file##*/}` extracts text after last '/'
     # so the below is equivalent to the above but more readable
-    ln -sf "$file" "${CONFIG_DIR}/fish/$(basename "$file")"
+    ln -sf "$FILE" "${DST_DIR}/fish/$(basename "$FILE")"
 done
 
 echo "dotfiles updated"
