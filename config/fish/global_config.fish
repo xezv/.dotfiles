@@ -13,7 +13,7 @@ if status is-interactive
     # 1. /etc/fish/config.fish
     # 2. ~/.config/fish/config.fish
 
-    if status is-interactive
+    if not status is-login
         return
     end
 
