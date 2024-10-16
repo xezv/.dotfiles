@@ -16,7 +16,7 @@
     # return
 # end
 
-if status is-login and status is-interactive
+if status is-login
     bass source /etc/profile
 
     for file in /etc/profile.d/*.sh
