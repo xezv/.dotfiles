@@ -13,9 +13,9 @@ if status is-interactive
     # 1. /etc/fish/config.fish
     # 2. ~/.config/fish/config.fish
 
-    if not status is-login
-        return
-    end
+    # if not status is-login
+        # return
+    # end
 
     bass source /etc/profile
 
