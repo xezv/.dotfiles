@@ -13,6 +13,10 @@ if status is-interactive
     # 1. /etc/fish/config.fish
     # 2. ~/.config/fish/config.fish
 
+    if status is-interactive
+        return
+    end
+
     bass source /etc/profile
 
     for file in /etc/profile.d/*.sh

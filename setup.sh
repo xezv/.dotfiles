@@ -30,13 +30,17 @@ ln -sf "${SRC_DIR}/helix/" "${DST_DIR}/"
 
 # Fish
 mkdir -p "${DST_DIR}/fish"
-# # link all files in fish directory
-for FILE in "${SRC_DIR}/fish/"*; do
+ln -sf "${SRC_DIR}/fish/config.fish" "${DST_DIR}/fish/config.fish"
+ln -sf "${SRC_DIR}/fish/global_config.fish" "/etc/fish/config.fish"
+
+# Bash
+mkdir -p "${DST_DIR}/bash"
+# link all files in bash directory
+for FILE in "${SRC_DIR}/bash/"*; do
     # ln -sf "$file" "${CONFIG_DIR}/helix/${file##*/}"
     # `${var}##{pattern}/`
     # `${file##*/}` extracts text after last '/'
     # so the below is equivalent to the above but more readable
-    ln -sf "${SRC_DIR}/fish/$(basename "${FILE}")" "${DST_DIR}/fish/$(basename "${FILE}")"
+    ln -sf "${SRC_DIR}/bash/$(basename "${FILE}")" "${DST_DIR}/bash/$(basename "${FILE}")"
 done
 
-echo "dotfiles updated"
