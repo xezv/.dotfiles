@@ -12,6 +12,19 @@ if status is-interactive
     # FISH
     # 1. /etc/fish/config.fish
     # 2. ~/.config/fish/config.fish
-    bass source ~/.bashrc
-  
+
+    bass source /etc/profile
+
+    for file in /etc/profile.d/*.sh
+        if not test -e $file
+            echo "not found $file(config.fish)"
+            exit 1
+        end
+        bass source $file
+        if [ $status -ne 0 ]
+            echo "failed to source $file(config.fish)"
+            exit 1
+        end
+    end
+ 
 end
