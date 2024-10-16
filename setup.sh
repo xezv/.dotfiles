@@ -34,6 +34,7 @@ ln -sf "${SRC_DIR}/fish/config.fish" "${DST_DIR}/fish/config.fish"
 sudo ln -sf "${SRC_DIR}/fish/global_config.fish" "/etc/fish/config.fish"
 
 # Bash
+ln -sf "${SRC_DIR}/bash/.bashrc" "${DST_DIR}/.bashrc"
 mkdir -p "${DST_DIR}/bash"
 # link all files in bash directory
 for FILE in "${SRC_DIR}/bash/"*; do
@@ -41,6 +42,9 @@ for FILE in "${SRC_DIR}/bash/"*; do
     # `${var}##{pattern}/`
     # `${file##*/}` extracts text after last '/'
     # so the below is equivalent to the above but more readable
-    ln -sf "${SRC_DIR}/bash/$(basename "${FILE}")" "${DST_DIR}/bash/$(basename "${FILE}")"
-done
 
+    # Check if the file has a .sh extension
+    if [[ "$FILE" == *.sh ]]; then
+        ln -sf "${SRC_DIR}/bash/$(basename "${FILE}")" "${DST_DIR}/bash/$(basename "${FILE}")"
+    fi
+done

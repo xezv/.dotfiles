@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-source "~/.config/bash/alias.sh"
+for file in ~/.config/bash/*.sh; do
+    source "$file"
+done
