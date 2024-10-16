@@ -31,7 +31,7 @@ ln -sf "${SRC_DIR}/helix/" "${DST_DIR}/"
 # Fish
 mkdir -p "${DST_DIR}/fish"
 ln -sf "${SRC_DIR}/fish/config.fish" "${DST_DIR}/fish/config.fish"
-ln -sf "${SRC_DIR}/fish/global_config.fish" "/etc/fish/config.fish"
+sudo ln -sf "${SRC_DIR}/fish/global_config.fish" "/etc/fish/config.fish"
 
 # Bash
 mkdir -p "${DST_DIR}/bash"
