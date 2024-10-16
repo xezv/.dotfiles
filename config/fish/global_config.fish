@@ -1,22 +1,22 @@
-if status is-interactive
-    # BASH
-    # (Login Shell)
-    # 1. /etc/profile
-    # 2. ~/.bash_profile or ~/.bash_login or ~/.profile -> ~/.bashrc(indirectly)
-    # (Non-login Shell or Interactive Shell)
-    # 1. /etc/bash.bashrc
-    # 2. ~/.bashrc
-    # Logout
-    # 1. ~/.bash_logout
+# BASH
+# (Login Shell)
+# 1. /etc/profile
+# 2. ~/.bash_profile or ~/.bash_login or ~/.profile -> ~/.bashrc(indirectly)
+# (Non-login Shell or Interactive Shell)
+# 1. /etc/bash.bashrc
+# 2. ~/.bashrc
+# Logout
+# 1. ~/.bash_logout
 
-    # FISH
-    # 1. /etc/fish/config.fish
-    # 2. ~/.config/fish/config.fish
+# FISH
+# 1. /etc/fish/config.fish
+# 2. ~/.config/fish/config.fish
 
-    # if not status is-login
-        # return
-    # end
+# if not status is-login
+    # return
+# end
 
+if (status is-login) and (status is-interactive)
     bass source /etc/profile
 
     for file in /etc/profile.d/*.sh
@@ -30,5 +30,5 @@ if status is-interactive
             exit 1
         end
     end
- 
 end
+
